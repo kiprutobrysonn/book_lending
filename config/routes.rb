@@ -22,10 +22,8 @@ Rails.application.routes.draw do
 
   resources :borrowings, only: [ :index ] do
     collection do
-      get "history"
-      get "overdue"
       get "all", to: "borrowings#all_borrowings"
-      get "all_overdue"
+      get "all_overdue", to: "borrowings#all_overdue"
     end
   end
 

@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   validates :email_address, presence: true, uniqueness: true
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+  validates :email_address, format: { with: URI::MailTo::EMAIL_REGEXP, message: "is invalid" }
 
 
   def currently_borrowed_books

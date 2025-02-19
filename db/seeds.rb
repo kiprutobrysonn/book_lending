@@ -121,7 +121,8 @@ Borrowing.create!(
 Borrowing.create!(
   user: users[0],
   book: books[4],
-  due_date: 1.week.ago
+  due_date: 1.week.ago,
+  returned_at: nil
 )
 
 puts "Seed data created successfully!"

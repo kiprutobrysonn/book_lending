@@ -15,4 +15,55 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_response :unprocessable_entity
   end
+
+  test "should show user" do
+    user = users(:one)
+    get user_url(user)
+    assert_response :success
+  end
+
+  test "user_params permits only allowed parameters" do
+    @controller = UsersController.new
+    params = ActionController::Parameters.new(
+      user: {
+        email_address: "test@example.com",
+        password: "password123",
+        password_confirmation: "password123",
+        admin: true # unpermitted param
+      }
+    )
+
+    @controller.params = params
+
+    filtered_params = @controller.send(:user_params)
+
+    assert_equal [ "email_address", "password", "password_confirmation" ],
+                 filtered_params.keys
+    assert_not filtered_params.key?("admin")
+  end
+
+  test "user_params requires user parameter namespace" do
+    @controller = UsersController.new
+    params = ActionController::Parameters.new(
+      email_address: "test@example.com",
+      password: "password123"
+    )
+
+    @controller.params = params
+
+    assert_raises(ActionController::ParameterMissing) do
+      @controller.send(:user_params)
+    end
+  end
+
+  test "user_params handles empty parameters" do
+    @controller = UsersController.new
+    params = ActionController::Parameters.new({})
+
+    @controller.params = params
+
+    assert_raises(ActionController::ParameterMissing) do
+      @controller.send(:user_params)
+    end
+  end
 end

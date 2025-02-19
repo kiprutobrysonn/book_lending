@@ -4,6 +4,8 @@
     <h1 class="text-2xl font-bold text-gray-900">Library Books</h1>
     <% if Current.user&.has_role?("admin") %>
       <%= link_to 'Add New Book', new_book_path, class: 'bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600' %>
+             <%= link_to 'Overdue Books', all_overdue_borrowings_path, class: 'bg-red-500 text-white px-4 py-2 rounded hover:bg-blue-600' %>
+
     <% end %>
    
   </div>

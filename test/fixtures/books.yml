@@ -15,3 +15,12 @@ two:
   publisher: Grand Central Publishing
   publication_year: 1960
   language: English
+
+three:
+  title: The Catcher in the Rye
+  author: Harper Lee
+  isbn: 978-0446300789
+  description: The story of racial injustice and the loss of innocence in the American South.
+  publisher: Grand Central Publishing
+  publication_year: 1960
+  language: English

@@ -21,7 +21,7 @@ class Borrowing < ApplicationRecord
   belongs_to :user
   belongs_to :book
 
-  validates :due_date, presence: true
+  validates :due_date, presence: { message: "can't be blank" }, on: :create
   validate :book_must_be_available, on: :create
 
   scope :active, -> { where(returned_at: nil) }
@@ -35,7 +35,7 @@ class Borrowing < ApplicationRecord
   end
 
   def overdue?
-    due_date < Date.current && returned_at
+    due_date < Date.current && returned_at ==nil
   end
 
   private
