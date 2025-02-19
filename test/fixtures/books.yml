@@ -1,0 +1,17 @@
+one:
+  title: The Great Gatsby
+  author: F. Scott Fitzgerald
+  isbn: 978-0743273565
+  description: A story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.
+  publisher: Scribner
+  publication_year: 1925
+  language: English
+
+two:
+  title: To Kill a Mockingbird
+  author: Harper Lee
+  isbn: 978-0446310789
+  description: The story of racial injustice and the loss of innocence in the American South.
+  publisher: Grand Central Publishing
+  publication_year: 1960
+  language: English

@@ -1,0 +1,35 @@
+<div class="bg-white rounded-lg shadow">
+  <div class="px-4 py-5 sm:px-6">
+    <h1 class="text-2xl font-bold text-gray-900">My Borrowed Books</h1>
+  </div>
+  
+  <div class="border-t border-gray-200">
+    <% if @borrowings.any? %>
+      <ul class="divide-y divide-gray-200">
+        <% @borrowings.each do |borrowing| %>
+          <li class="p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="text-xl font-semibold text-gray-900"><%= borrowing.book.title %></h2>
+                <p class="text-gray-600 mt-1">by <%= borrowing.book.author %></p>
+                <p class="text-sm text-gray-500 mt-2">
+                  Due: <%= borrowing.due_date.strftime('%B %d, %Y') %>
+                  <% if borrowing.overdue? %>
+                    <span class="text-red-600 ml-2">(Overdue)</span>
+                  <% end %>
+                </p>
+              </div>
+              
+              <%= button_to 'Return Book', return_book_path(borrowing.book), method: :post,
+                  class: 'bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600' %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <div class="p-6 text-center text-gray-500">
+        You don't have any borrowed books at the moment.
+      </div>
+    <% end %>
+  </div>
+</div>
