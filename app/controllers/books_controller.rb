@@ -2,8 +2,6 @@ class BooksController < ApplicationController
   before_action :set_book, only: [ :show,   :borrow, :return, :edit, :update, :destroy ]
   before_action :ensure_admin!, only: [ :new, :create, :edit, :update, :destroy ]
 
-
-
   def new
     @book = Book.new
   end

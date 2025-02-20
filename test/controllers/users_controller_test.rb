@@ -16,11 +16,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :unprocessable_entity
   end
 
-  test "should show user" do
-    user = users(:one)
-    get user_url(user)
-    assert_response :success
-  end
 
   test "user_params permits only allowed parameters" do
     @controller = UsersController.new

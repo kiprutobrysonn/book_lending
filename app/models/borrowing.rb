@@ -35,7 +35,7 @@ class Borrowing < ApplicationRecord
   end
 
   def overdue?
-    due_date < Date.current && returned_at ==nil
+    due_date < Date.current && returned_at == nil
   end
 
   private

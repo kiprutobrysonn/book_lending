@@ -23,26 +23,6 @@ cd book_lending
 bundle install
 ```
 
-3. Database Setup
-
-```bash
-# Create the database
-rails db:create
-
-# Run migrations
-rails db:scheme:load or
-rails db:migrate
-
-# Seed the database (if available)
-rails db:seed
-```
-
-4. Start the Rails server
-
-```bash
-rails server
-```
-
 The application will be available at `http://localhost:3000`
 
 ### Running Tests
@@ -119,6 +99,19 @@ postgres=# \password your_username
 
 - Update database.yml with your PostgreSQL credentials
 
+### Database Setup
+
+```bash
+# Create the database
+rails db:create
+
+# Run migrations
+rails db:scheme:load or
+rails db:migrate
+
+# Seed the database (if available)
+rails db:seed
+
 ### Development
 
 - Run the development server: `rails s`
@@ -133,3 +126,4 @@ If you encounter any issues:
 2. Check database.yml configuration
 3. Ensure PostgreSQL is running
 4. Try `bundle exec rake db:reset`
+```

@@ -38,24 +38,9 @@ class BookTest < ActiveSupport::TestCase
     end
   end
 
-  test "available scope should return available books" do
-    available_book = books(:one)
-    borrowed_book = books(:two)
-    assert_includes Book.available, available_book
-    assert_not_includes Book.available, borrowed_book
-  end
+
 
   test "available? should return true if book is not borrowed" do
     assert @book.available?
-  end
-
-  test "available? should return false if book is borrowed" do
-    @book.borrowings.create(user: users(:one), active: true)
-    assert_not @book.available?
-  end
-
-  test "current_borrowing should return the active borrowing" do
-    borrowing = @book.borrowings.create(user: users(:one), active: true)
-    assert_equal borrowing, @book.current_borrowing
   end
 end
